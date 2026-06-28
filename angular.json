@@ -6,7 +6,7 @@
   },
   "newProjectRoot": "projects",
   "projects": {
-    "eurobridge": {
+    "novowinds": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -64,10 +64,10 @@
           },
           "configurations": {
             "production": {
-              "buildTarget": "eurobridge:build:production"
+              "buildTarget": "novowinds:build:production"
             },
             "development": {
-              "buildTarget": "eurobridge:build:development"
+              "buildTarget": "novowinds:build:development"
             }
           },
           "defaultConfiguration": "development"

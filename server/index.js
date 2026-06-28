@@ -29,7 +29,7 @@ app.post('/api/contact', async (req, res) => {
   const smtpPass = process.env.SMTP_PASS;
   const smtpAuthUser = process.env.SMTP_AUTH_USER || smtpUser;
   const smtpAuthPass = process.env.SMTP_AUTH_PASS || smtpPass;
-  const contactTo = process.env.CONTACT_TO || 'direccion@eurobridge-aviation.org';
+  const contactTo = process.env.CONTACT_TO || 'direccion@novowinds.org';
   const contactFrom = process.env.CONTACT_FROM || smtpUser;
   const missingConfig = getMissingSmtpConfig({
     smtpHost,
@@ -88,7 +88,7 @@ app.post('/api/contact', async (req, res) => {
   ].join('\n');
 
   const html = `
-    <h2>Nueva consulta desde Eurobridge</h2>
+    <h2>Nueva consulta desde Novowinds</h2>
     <p><strong>Curso/Servicio:</strong> ${escapeHtml(payload.value.course)}</p>
     <p><strong>Nombre:</strong> ${escapeHtml(payload.value.fullName)}</p>
     <p><strong>Email:</strong> ${escapeHtml(payload.value.email)}</p>
@@ -102,7 +102,7 @@ app.post('/api/contact', async (req, res) => {
       from: fromAddress,
       to: contactTo,
       replyTo: payload.value.email,
-      subject: `Nueva consulta Eurobridge - ${payload.value.course}`,
+      subject: `Nueva consulta Novowinds - ${payload.value.course}`,
       text,
       html,
     });
