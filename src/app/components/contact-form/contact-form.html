@@ -40,6 +40,19 @@
     placeholder="Cuéntanos qué necesitas"
   ></textarea>
 
+  <!-- Campo trampa antispam: oculto a la vista y a los lectores de pantalla, y
+       fuera del recorrido del tabulador. Solo los bots lo rellenan. -->
+  <div class="contact-form-honeypot" aria-hidden="true">
+    <label for="website">No rellenes este campo</label>
+    <input
+      id="website"
+      type="text"
+      formControlName="website"
+      tabindex="-1"
+      autocomplete="off"
+    />
+  </div>
+
   @if (errorMessage()) {
     <p class="contact-form-error" role="alert">{{ errorMessage() }}</p>
   }

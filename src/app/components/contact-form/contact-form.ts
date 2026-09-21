@@ -24,6 +24,8 @@ export class ContactFormComponent {
     email: ['', [Validators.required, Validators.email]],
     phone: [''],
     message: ['', [Validators.required, Validators.minLength(10)]],
+    // Campo trampa: sin validadores, para que nunca bloquee el envio real.
+    website: [''],
   });
 
   canSubmit(): boolean {
@@ -44,6 +46,7 @@ export class ContactFormComponent {
       email: value.email.trim(),
       phone: value.phone.trim() || undefined,
       message: value.message.trim(),
+      website: value.website,
     });
   }
 

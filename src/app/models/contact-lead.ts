@@ -4,4 +4,6 @@ export interface ContactLead {
   email: string;
   phone?: string;
   message: string;
+  /** Campo trampa antispam: siempre vacio en envios legitimos. */
+  website?: string;
 }

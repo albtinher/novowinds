@@ -10,6 +10,13 @@ const DEFAULT_TIMEOUTS = {
 };
 
 async function handleContact(body, options = {}) {
+  // Campo trampa: solo los bots lo rellenan. Se responde 200 como si el envio
+  // hubiera funcionado para no darles pistas de que han sido detectados.
+  if (cleanText(body?.website)) {
+    console.warn('[contact-api] Envio descartado: campo trampa relleno.');
+    return { status: 200, body: { ok: true, mode: 'discarded', previewUrl: null } };
+  }
+
   const payload = normalizePayload(body);
 
   if (!payload.ok) {

@@ -135,3 +135,13 @@
     flex-direction: column;
   }
 }
+
+// Oculta el campo trampa sin usar display:none, para que los bots que ignoran
+// los elementos no renderizados sigan viendolo y cayendo en el.
+.contact-form-honeypot {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
